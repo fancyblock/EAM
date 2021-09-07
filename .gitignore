@@ -1,0 +1,5 @@
+/UniPrj/EAM/Library/
+/UniPrj/EAM/Logs/
+/UniPrj/EAM/Temp/
+*.csproj
+*.sln
