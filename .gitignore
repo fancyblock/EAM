@@ -4,3 +4,5 @@
 *.csproj
 *.sln
 /UniPrj/EAM/obj/
+UniPrj/EAM/.vs/
+UniPrj/EAM/.vscode/

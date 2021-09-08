@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Util
 {
+    /// <summary>
+    /// LogÊä³ö
+    /// </summary>
+    /// <param name="log"></param>
+    /// <param name="color"></param>
     static public void Log(string log, Color color = new Color())
     {
         string r = Mathf.RoundToInt((color.r / 1.0f) * 255).ToString("X").PadLeft(2, '0');
@@ -14,6 +19,6 @@ public class Util
         string head = $"<color=#{r}{g}{b}>";
         string tail = "</color>";
 
-        Debug.Log($"{head}log{tail}");
+        Debug.Log($"{head}{log}{tail}");
     }
 }

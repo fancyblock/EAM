@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tiles
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 506c5cc857fb251428dff8f2ef73074f, type: 3}
+    - {fileID: 102900000, guid: 9796de72d5fb54441912d0ce47ab99ac, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 5b650c014f321764299b08a1803ac8d7, type: 3}
+  - {fileID: 21300000, guid: 1651c14115032324eaf10626f9543473, type: 3}
+  - {fileID: 21300000, guid: b74f347288c97a14a8fda8d954351cd6, type: 3}
+  - {fileID: 21300000, guid: b353a972db11e3f419b583b7488cae27, type: 3}
+  - {fileID: 21300000, guid: 59bf539237680c349ae0722ede1e27e1, type: 3}
+  - {fileID: 21300000, guid: a8c69203bd69bf9498b81e76ce860275, type: 3}
+  - {fileID: 21300000, guid: d71a8613e2297d14f90c6a6b1eee1a6d, type: 3}
+  - {fileID: 21300000, guid: c9fcb634e9f57f945ac938b0242c8e16, type: 3}
+  - {fileID: 21300000, guid: 3ce730740bb410742b326328514e91c5, type: 3}
+  - {fileID: 21300000, guid: c549729405a6df24b999f42f93320f28, type: 3}
+  - {fileID: 21300000, guid: e862369403d257e4c940d55b33416e6f, type: 3}
+  - {fileID: 21300000, guid: a59394b4b4ca3d344b3dc7d5b12e5f6b, type: 3}
+  - {fileID: 21300000, guid: 69f0bc2584e38e940951fcc009b3b4a0, type: 3}
+  - {fileID: 21300000, guid: d235e3b5c7962c740914a6f80aed7b27, type: 3}
+  - {fileID: 21300000, guid: 0ce5fab59cc87bd478746c0ddfdce77f, type: 3}
+  - {fileID: 21300000, guid: 868508c580973a04fa8ef835e6070a87, type: 3}
+  - {fileID: 21300000, guid: ae6c8cc56a23edc4fa7a953878312ab4, type: 3}
+  - {fileID: 21300000, guid: e8d18ad5475d4bc4c8e2b3be1b37b7dc, type: 3}
+  - {fileID: 21300000, guid: ed3412e50045f8348a6bf7f67bd08e96, type: 3}
+  - {fileID: 21300000, guid: 526f14e598a8df94980d553014fa6f8a, type: 3}
+  - {fileID: 21300000, guid: 7cf59076addb9ac4dbe0307a94b3c849, type: 3}
+  - {fileID: 21300000, guid: 24a6ee86bfa045c4e94ec2eaf5a8cea3, type: 3}
+  - {fileID: 21300000, guid: 3b1a1f868d0327e43a9c21970733143a, type: 3}
+  - {fileID: 21300000, guid: de1e0bd606646624d93f0e7f8a50ed2c, type: 3}
+  - {fileID: 21300000, guid: 14b048e6038210b40aa27d40b5dfc8af, type: 3}
+  - {fileID: 21300000, guid: 0f67e2e7f93607144a68bcd9e744fab3, type: 3}
+  - {fileID: 21300000, guid: c3e578188e74e514688d756b339eb7a2, type: 3}
+  - {fileID: 21300000, guid: e408e0d8ccfea8545a4408169d8cbdfa, type: 3}
+  - {fileID: 21300000, guid: bd7ffde8d0145ec4bbaf0e0bbeb18d79, type: 3}
+  - {fileID: 21300000, guid: 14a0b989e11b4d04d9ff5f81d3aea23c, type: 3}
+  - {fileID: 21300000, guid: b2157d89307c79c42ac43b5d996b02c7, type: 3}
+  - {fileID: 21300000, guid: a29caca9325ae2f43aaf1e7cd3130d2f, type: 3}
+  - {fileID: 21300000, guid: 1c1abab9b50d17f42889c102546c7ce5, type: 3}
+  - {fileID: 21300000, guid: 6c86190a09cc3e549bb5f1fbac5168fc, type: 3}
+  - {fileID: 21300000, guid: 8e605b2a1e6066045ab1b0d372ed5c6d, type: 3}
+  - {fileID: 21300000, guid: 119838aa8008a3a4ea33cc248820d9e3, type: 3}
+  - {fileID: 21300000, guid: a59defca59eeeea45a35eff93c3d7b0b, type: 3}
+  - {fileID: 21300000, guid: a1d3c3ea6ae94644bb2c984138588cff, type: 3}
+  - {fileID: 21300000, guid: 62abf41bab1a83345bd9b0d997937078, type: 3}
+  - {fileID: 21300000, guid: 14d4deab2848e4e44a6a6c27b7d18967, type: 3}
+  - {fileID: 21300000, guid: 015c67dba6c37af408b46bfab06f287a, type: 3}
+  - {fileID: 21300000, guid: 5d499a0c497dde94dab899cebd0f744d, type: 3}
+  - {fileID: 21300000, guid: eeb3a61cd1791734f94edd62827efba5, type: 3}
+  - {fileID: 21300000, guid: 798ead3c3cb653a44a2833224fa52772, type: 3}
+  - {fileID: 21300000, guid: 5d69856c55cb54b4d97fab04806078f1, type: 3}
+  - {fileID: 21300000, guid: a405b0ec0f7080c43baac2c51324379f, type: 3}
+  - {fileID: 21300000, guid: 921a540dd77134b4c9fc7859ab3cddad, type: 3}
+  - {fileID: 21300000, guid: 9388032d1972eec41a66e9b296939676, type: 3}
+  - {fileID: 21300000, guid: 3592572d9476b7046a0bc13e85ab7eee, type: 3}
+  - {fileID: 21300000, guid: 091a384dfefdbeb4eba8c93d63022205, type: 3}
+  - {fileID: 21300000, guid: eceda85d059346742817dd8908d392d8, type: 3}
+  - {fileID: 21300000, guid: 835d6c6d3cbd6304cadc15f170f5c4dd, type: 3}
+  - {fileID: 21300000, guid: a1175e6d37f6eaf489428b4e3004234c, type: 3}
+  - {fileID: 21300000, guid: ec4616ad80578ef4e8c7293b8711cc75, type: 3}
+  - {fileID: 21300000, guid: b4c3e0bdd7fe0af4a8f4205ddeb02b73, type: 3}
+  - {fileID: 21300000, guid: 8b265b1e7dcc61745b93ece47fba42db, type: 3}
+  - {fileID: 21300000, guid: 579b17ee2ee55ea49a4b422bdb3c5f92, type: 3}
+  - {fileID: 21300000, guid: 5510f8fe7d32f434c99eb3a49beb1b73, type: 3}
+  - {fileID: 21300000, guid: 84cd105f5dfb21d4f9f65fc7cca9205b, type: 3}
+  - {fileID: 21300000, guid: 24bcb8ef36bc3944f911ce4628b89113, type: 3}
+  - {fileID: 21300000, guid: 1380ffffffae67448843c6e6cbb5cf22, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - shamo7
+  - s13
+  - 1
+  - shamo2
+  - YouXia3
+  - s3
+  - shamo6
+  - s10
+  - 5
+  - shamo9
+  - YouXia1
+  - s4
+  - shamo1
+  - 15
+  - s16
+  - 7
+  - shamo3
+  - s12
+  - s5
+  - ZuoXia2
+  - 3
+  - 10
+  - 14
+  - shamo16
+  - shamo10
+  - Zuo1
+  - ZhengXia1
+  - 11
+  - 9
+  - shamo8
+  - You1
+  - 2
+  - shamo5
+  - shamo13
+  - ZuoXia1
+  - s11
+  - s2
+  - shamo15
+  - 16
+  - 6
+  - shamo17
+  - YouXia2
+  - shamo11
+  - 13
+  - s7
+  - s14
+  - ZuoXia3
+  - s9
+  - s15
+  - ZhengXia2
+  - s8
+  - 12
+  - s1
+  - 8
+  - shamo12
+  - 4
+  - ZhengXia3
+  - 17
+  - shamo14
+  - s6
+  - shamo4
+  m_RenderDataMap: {}
+  m_Tag: Tiles
+  m_IsVariant: 0

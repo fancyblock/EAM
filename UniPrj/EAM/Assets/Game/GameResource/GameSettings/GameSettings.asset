@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   m_mapCfg:
-    m_mapRowCount: 20
-    m_mapColCount: 20
+    m_mapRowCount: 4
+    m_mapColCount: 5
     m_tileSize: {x: 118, y: 59}

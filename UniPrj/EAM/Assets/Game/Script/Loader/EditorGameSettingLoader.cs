@@ -117,4 +117,49 @@ public class EditorGameSettingLoader : IGameSettingLoader
 
         return result;
     }
+
+
+    /// <summary>
+    /// 读取Excel原始数据
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public object[,] LoadRawSheet(string name)
+    {
+        string filePath = $"Assets/GameSettings~/{name}.xlsx";
+
+        if (!File.Exists(filePath))
+            throw new Exception($"找不到配置表 {filePath}");
+
+        object[,] result = null;
+
+        using (FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        {
+            using (var reader = ExcelReaderFactory.CreateReader(stream))
+            {
+                int fieldCnt = reader.FieldCount;
+                int rowCnt = reader.RowCount;
+
+                if (fieldCnt + rowCnt == 0)
+                {
+                    Util.Log($"表格{name}没有数据", Color.yellow);
+                    return null;
+                }
+
+                result = new object[fieldCnt, rowCnt];
+
+                for (int i = 0; i < rowCnt; i++)
+                {
+                    reader.Read();
+
+                    for (int j = 0; j < fieldCnt; j++)
+                    {
+                        result[j,i] = reader.GetValue(j);
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
 }

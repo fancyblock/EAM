@@ -1,9 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 
 public interface IGameSettingLoader 
 {
     List<T> LoadData<T>(string name);
+
+    object[,] LoadRawSheet(string name);
 }

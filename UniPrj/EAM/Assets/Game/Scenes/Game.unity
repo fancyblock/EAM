@@ -300,6 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001328779}
   - component: {fileID: 2001328778}
+  - component: {fileID: 2001328777}
   m_Layer: 0
   m_Name: MapCamera
   m_TagString: MainCamera
@@ -307,6 +308,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2001328777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001328776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components: []
+  _identifier: 
+  _useSceneContext: 0
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!20 &2001328778
 Camera:
   m_ObjectHideFlags: 0

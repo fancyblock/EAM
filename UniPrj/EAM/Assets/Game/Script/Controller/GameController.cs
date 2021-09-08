@@ -17,7 +17,6 @@ public class GameController : ITickable, IInitializable
         Application.targetFrameRate = 60;
 
         // loadLevel();
-        m_mapController.LoadMap();              //[TEMP]
     }
 
     public void Tick()

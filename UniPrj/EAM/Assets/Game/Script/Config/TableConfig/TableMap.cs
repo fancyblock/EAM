@@ -5,7 +5,7 @@ using System;
 
 
 [Serializable]
-public class MapConfig 
+public class TableMap 
 {
-    public Vector2 m_tileSize;
+    public string[,] m_tiles;
 }
