@@ -9,4 +9,6 @@ public class TableTileTerrain
     public string id;
 
     public eTerrain terrain;
+    public string tileImage;
+    public string baseImage;
 }

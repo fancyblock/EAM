@@ -8,10 +8,12 @@ using Zenject;
 public class SettingInstaller : ScriptableObjectInstaller<SettingInstaller>
 {
     public MapConfig m_mapCfg;
+    public TileImageConfig m_tileImageCfg;
 
 
     public override void InstallBindings()
     {
         Container.BindInstances(m_mapCfg);
+        Container.BindInstances(m_tileImageCfg);
     }
 }

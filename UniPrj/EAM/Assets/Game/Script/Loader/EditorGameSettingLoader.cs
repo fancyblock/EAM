@@ -73,28 +73,7 @@ public class EditorGameSettingLoader : IGameSettingLoader
                                     continue;
                                 }
 
-                                Type type = reader.GetFieldType(fieldIndex[key]);
-
-                                if (type == typeof(string))
-                                {
-                                    item.Add(key, reader.GetString(fieldIndex[key]));
-                                }
-                                else if (type == typeof(int))
-                                {
-                                    item.Add(key, reader.GetInt32(fieldIndex[key]));
-                                }
-                                else if (type == typeof(double))
-                                {
-                                    item.Add(key, reader.GetDouble(fieldIndex[key]));
-                                }
-                                else if (type == typeof(bool))
-                                {
-                                    item.Add(key, reader.GetBoolean(fieldIndex[key]));
-                                }
-                                else
-                                {
-                                    Debug.LogError($"表格{name}含有不支持的字段类型: {type.Name} 在{fieldIndex[key]},{i+1}");
-                                }
+                                item.Add(key, reader.GetValue(fieldIndex[key]).ToString());
                             }
                             catch(Exception e)
                             {

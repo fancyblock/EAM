@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 
+[Serializable]
 public enum eFogType
 {
-    None,
+    nil,
     permanent,
     temporary,
 }
 
 
+[Serializable]
 public enum eTerrain
 {
-    None,
+    nil,
     ground,
 }
