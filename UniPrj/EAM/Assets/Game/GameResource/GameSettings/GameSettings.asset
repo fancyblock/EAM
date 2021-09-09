@@ -15,21 +15,34 @@ MonoBehaviour:
   m_mapCfg:
     m_tileSize: {x: 235, y: 58.5}
   m_tileImageCfg:
-    m_tileImage:
-    - {fileID: 21300000, guid: b74f347288c97a14a8fda8d954351cd6, type: 3}
-    - {fileID: 21300000, guid: a29caca9325ae2f43aaf1e7cd3130d2f, type: 3}
-    - {fileID: 21300000, guid: 7cf59076addb9ac4dbe0307a94b3c849, type: 3}
-    - {fileID: 21300000, guid: 8b265b1e7dcc61745b93ece47fba42db, type: 3}
-    - {fileID: 21300000, guid: 3ce730740bb410742b326328514e91c5, type: 3}
-    - {fileID: 21300000, guid: 14d4deab2848e4e44a6a6c27b7d18967, type: 3}
-    - {fileID: 21300000, guid: 868508c580973a04fa8ef835e6070a87, type: 3}
-    - {fileID: 21300000, guid: ec4616ad80578ef4e8c7293b8711cc75, type: 3}
-    - {fileID: 21300000, guid: bd7ffde8d0145ec4bbaf0e0bbeb18d79, type: 3}
-    - {fileID: 21300000, guid: 24a6ee86bfa045c4e94ec2eaf5a8cea3, type: 3}
-    m_tileBaseImage:
-    - {fileID: 21300000, guid: b2157d89307c79c42ac43b5d996b02c7, type: 3}
-    - {fileID: 21300000, guid: e862369403d257e4c940d55b33416e6f, type: 3}
-    - {fileID: 21300000, guid: 5d499a0c497dde94dab899cebd0f744d, type: 3}
-    - {fileID: 21300000, guid: 59bf539237680c349ae0722ede1e27e1, type: 3}
-    - {fileID: 21300000, guid: c3e578188e74e514688d756b339eb7a2, type: 3}
+    m_shapeSequence: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+    m_normalTile:
+    - m_shape:
+      - {fileID: 21300000, guid: a29caca9325ae2f43aaf1e7cd3130d2f, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 7cf59076addb9ac4dbe0307a94b3c849, type: 3}
+      - {fileID: 21300000, guid: 5510f8fe7d32f434c99eb3a49beb1b73, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: b74f347288c97a14a8fda8d954351cd6, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: bd7ffde8d0145ec4bbaf0e0bbeb18d79, type: 3}
+      - {fileID: 21300000, guid: e408e0d8ccfea8545a4408169d8cbdfa, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 24a6ee86bfa045c4e94ec2eaf5a8cea3, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 798ead3c3cb653a44a2833224fa52772, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 3b1a1f868d0327e43a9c21970733143a, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 3ce730740bb410742b326328514e91c5, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 14d4deab2848e4e44a6a6c27b7d18967, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 62abf41bab1a83345bd9b0d997937078, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 835d6c6d3cbd6304cadc15f170f5c4dd, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 8b265b1e7dcc61745b93ece47fba42db, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: ec4616ad80578ef4e8c7293b8711cc75, type: 3}
   m_tilePrefab: {fileID: 2686670442697246902, guid: 91f42b955d61ee649920ad6cabbe7d1e, type: 3}

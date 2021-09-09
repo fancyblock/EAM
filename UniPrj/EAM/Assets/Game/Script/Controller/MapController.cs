@@ -75,7 +75,7 @@ public class MapController : IInitializable
                 GameObject go = GameObject.Instantiate(m_tilePrefab, m_mapContainer);
                 Transform trans = go.GetComponent<Transform>();
 
-                float xOffset = (j % 2) * m_mapConfig.m_tileSize.x * 0.5f;
+                float xOffset = (j % 2) * m_mapConfig.m_tileSize.x * 0.5f;          // Å¼ÊýÐÐÓÒÆ«
                 trans.localPosition = new Vector2(i * m_mapConfig.m_tileSize.x + xOffset, -j * m_mapConfig.m_tileSize.y);
 
                 Tile tile = go.GetComponent<Tile>();

@@ -19,3 +19,22 @@ public enum eTerrain
     ground,
     block,
 }
+
+
+[Serializable]
+public enum eTileShape : int
+{
+    center = 0,
+    rightCorner,
+    rightInCorner,
+    leftCorner,
+    leftInCorner,
+    upCorner,
+    upInCorner,
+    downCorner,
+    downInCorner,
+    edgeUpRight,
+    edgeUpLeft,
+    edgeDownRight,
+    edgeDownLeft,
+}

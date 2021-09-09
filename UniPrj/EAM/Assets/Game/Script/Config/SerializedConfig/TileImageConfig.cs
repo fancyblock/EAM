@@ -6,6 +6,13 @@ using UnityEngine;
 [Serializable]
 public class TileImageConfig 
 {
-    public List<Sprite> m_tileImage;
-    public List<Sprite> m_tileBaseImage;
+    public List<eTileShape> m_shapeSequence;
+    public List<TileShape> m_normalTile;
+}
+
+
+[Serializable]
+public class TileShape
+{
+    public List<Sprite> m_shape;
 }
