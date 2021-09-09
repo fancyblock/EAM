@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7c4205bac683848908fdf1e2e0a69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_render: {fileID: 949702608975538169}
+  m_tileGo: {fileID: 6400177783437783872}
 --- !u!210 &949702608975538169
 SortingGroup:
   m_ObjectHideFlags: 0

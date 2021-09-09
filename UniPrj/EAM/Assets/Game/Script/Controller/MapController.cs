@@ -17,7 +17,10 @@ public class MapController : IInitializable
     private GameObject m_tilePrefab;
 
     private TableMap m_tableMap;
-    private List<TableMapTile> m_tableMapTile;
+    private Dictionary<string, TableMapTile> m_tableMapTile;
+    private Dictionary<string, TableTileTerrain> m_tableTerrain;
+
+    private Tile[,] m_mapTiles;
 
 
     public void Initialize()
@@ -33,7 +36,16 @@ public class MapController : IInitializable
     {
         Util.Log("LoadMap");
 
-        m_tableMapTile = m_loader.LoadData<TableMapTile>("TableMapTile");
+        var rawMapTile = m_loader.LoadData<TableMapTile>("TableMapTile");
+        m_tableMapTile = new Dictionary<string, TableMapTile>();
+        foreach (var mt in rawMapTile)
+            m_tableMapTile.Add(mt.id, mt);
+
+        var rawTerrain = m_loader.LoadData<TableTileTerrain>("TableTileTerrain");
+        m_tableTerrain = new Dictionary<string, TableTileTerrain>();
+        foreach (var tt in rawTerrain)
+            m_tableTerrain.Add(tt.id, tt);
+
         m_tableMap = new TableMap();
 
         object[,] rawTableMap = m_loader.LoadRawSheet("TableMap");
@@ -54,9 +66,9 @@ public class MapController : IInitializable
 
     private void createMap()
     {
-        //TODO 
+        m_mapTiles = new Tile[m_tableMap.m_width, m_tableMap.m_height];
 
-        for(int i = 0; i < m_tableMap.m_width; i++)
+        for (int i = 0; i < m_tableMap.m_width; i++)
         {
             for(int j = 0; j < m_tableMap.m_height; j++)
             {
@@ -66,7 +78,12 @@ public class MapController : IInitializable
                 float xOffset = (j % 2) * m_mapConfig.m_tileSize.x * 0.5f;
                 trans.localPosition = new Vector2(i * m_mapConfig.m_tileSize.x + xOffset, -j * m_mapConfig.m_tileSize.y);
 
-                //TODO 
+                Tile tile = go.GetComponent<Tile>();
+                TableMapTile tmt = m_tableMapTile[m_tableMap.m_tiles[i, j]];
+                TableTileTerrain ttt = m_tableTerrain[tmt.terrain];
+                tile.SetTile(tmt, ttt);
+
+                m_mapTiles[i, j] = tile;
             }
         }
     }
