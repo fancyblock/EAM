@@ -43,6 +43,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1651c14115032324eaf10626f9543473, type: 3}
   - {fileID: 21300000, guid: b74f347288c97a14a8fda8d954351cd6, type: 3}
   - {fileID: 21300000, guid: b353a972db11e3f419b583b7488cae27, type: 3}
+  - {fileID: 21300000, guid: a1db4f827a3cc8d4090493a25c973a30, type: 3}
   - {fileID: 21300000, guid: 59bf539237680c349ae0722ede1e27e1, type: 3}
   - {fileID: 21300000, guid: a8c69203bd69bf9498b81e76ce860275, type: 3}
   - {fileID: 21300000, guid: d71a8613e2297d14f90c6a6b1eee1a6d, type: 3}
@@ -105,6 +106,7 @@ SpriteAtlas:
   - s13
   - 1
   - shamo2
+  - 0
   - YouXia3
   - s3
   - shamo6

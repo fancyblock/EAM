@@ -15,10 +15,13 @@ public class MapController : IInitializable
     private MapConfig m_mapConfig;
     [Inject(Id = "tile")]
     private GameObject m_tilePrefab;
+    [Inject]
+    private TileImageConfig m_tileImageConfig;
 
     private TableMap m_tableMap;
     private Dictionary<string, TableMapTile> m_tableMapTile;
     private Dictionary<string, TableTileTerrain> m_tableTerrain;
+    private List<TableTileShape> m_tableTileShape;
 
     private Tile[,] m_mapTiles;
 
@@ -46,6 +49,8 @@ public class MapController : IInitializable
         foreach (var tt in rawTerrain)
             m_tableTerrain.Add(tt.id, tt);
 
+        m_tableTileShape = m_loader.LoadData<TableTileShape>("TableTileShape");
+
         m_tableMap = new TableMap();
 
         object[,] rawTableMap = m_loader.LoadRawSheet("TableMap");
@@ -61,6 +66,7 @@ public class MapController : IInitializable
         }
 
         createMap();
+        refreshTileCorner();
     }
 
 
@@ -75,7 +81,7 @@ public class MapController : IInitializable
                 GameObject go = GameObject.Instantiate(m_tilePrefab, m_mapContainer);
                 Transform trans = go.GetComponent<Transform>();
 
-                float xOffset = (j % 2) * m_mapConfig.m_tileSize.x * 0.5f;          // 偶数行右偏
+                float xOffset = ((j + 1) % 2) * m_mapConfig.m_tileSize.x * 0.5f;          // 偶数行右偏
                 trans.localPosition = new Vector2(i * m_mapConfig.m_tileSize.x + xOffset, -j * m_mapConfig.m_tileSize.y);
 
                 Tile tile = go.GetComponent<Tile>();
@@ -83,8 +89,36 @@ public class MapController : IInitializable
                 TableTileTerrain ttt = m_tableTerrain[tmt.terrain];
                 tile.SetTile(tmt, ttt);
 
+                // set tile sorting order 
+                //TODO 
+
                 m_mapTiles[i, j] = tile;
             }
         }
+    }
+
+    private void refreshTileCorner()
+    {
+        for (int i = 0; i < m_tableMap.m_width; i++)
+        {
+            for (int j = 0; j < m_tableMap.m_height; j++)
+            {
+                Tile tile = m_mapTiles[i, j];
+
+                if (!tile.IS_GROUND)
+                    continue;
+
+                //TODO 
+            }
+        }
+    }
+
+    private TableTileShape getTileAroundInfo(int x, int y)
+    {
+        TableTileShape tts = new TableTileShape();
+
+        //TODO 
+
+        return tts;
     }
 }

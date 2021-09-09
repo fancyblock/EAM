@@ -15,7 +15,21 @@ MonoBehaviour:
   m_mapCfg:
     m_tileSize: {x: 235, y: 58.5}
   m_tileImageCfg:
-    m_shapeSequence: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+    m_shapeSequence:
+    - center
+    - rightCorner
+    - rightInCorner
+    - leftCorner
+    - leftInCorner
+    - upCorner
+    - upInCorner
+    - downCorner
+    - downInCorner
+    - edgeUpRight
+    - edgeUpLeft
+    - edgeDownRight
+    - edgeDownLeft
+    - single
     m_normalTile:
     - m_shape:
       - {fileID: 21300000, guid: a29caca9325ae2f43aaf1e7cd3130d2f, type: 3}
@@ -45,4 +59,6 @@ MonoBehaviour:
       - {fileID: 21300000, guid: 8b265b1e7dcc61745b93ece47fba42db, type: 3}
     - m_shape:
       - {fileID: 21300000, guid: ec4616ad80578ef4e8c7293b8711cc75, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: a1db4f827a3cc8d4090493a25c973a30, type: 3}
   m_tilePrefab: {fileID: 2686670442697246902, guid: 91f42b955d61ee649920ad6cabbe7d1e, type: 3}
