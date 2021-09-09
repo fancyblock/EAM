@@ -17,4 +17,5 @@ public enum eTerrain
 {
     nil,
     ground,
+    block,
 }

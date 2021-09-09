@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   m_mapCfg:
-    m_tileSize: {x: 118, y: 59}
+    m_tileSize: {x: 235, y: 58.5}
   m_tileImageCfg:
     m_tileImage:
     - {fileID: 21300000, guid: b74f347288c97a14a8fda8d954351cd6, type: 3}
@@ -32,3 +32,4 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 5d499a0c497dde94dab899cebd0f744d, type: 3}
     - {fileID: 21300000, guid: 59bf539237680c349ae0722ede1e27e1, type: 3}
     - {fileID: 21300000, guid: c3e578188e74e514688d756b339eb7a2, type: 3}
+  m_tilePrefab: {fileID: 2686670442697246902, guid: 91f42b955d61ee649920ad6cabbe7d1e, type: 3}
