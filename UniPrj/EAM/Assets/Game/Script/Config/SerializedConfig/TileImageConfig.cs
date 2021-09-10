@@ -8,6 +8,7 @@ public class TileImageConfig
 {
     public List<string> m_shapeSequence;
     public List<TileShape> m_normalTile;
+    public List<BaseStone> m_baseStone;
 }
 
 
@@ -15,4 +16,11 @@ public class TileImageConfig
 public class TileShape
 {
     public List<Sprite> m_shape;
+}
+
+
+[Serializable]
+public class BaseStone
+{
+    public List<Sprite> m_baseStone;
 }

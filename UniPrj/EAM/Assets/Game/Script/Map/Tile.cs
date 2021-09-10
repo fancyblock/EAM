@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] SortingGroup m_render;
     [SerializeField] SpriteRenderer m_tileSprite;
+    [SerializeField] SpriteRenderer m_baseStoneSprite;
 
     public TableMapTile TILE { get; private set; }
 
@@ -59,5 +60,18 @@ public class Tile : MonoBehaviour
     public void SetTileImage(Sprite sprite)
     {
         m_tileSprite.sprite = sprite;
+    }
+
+    public void SetBaseStoneImage(Sprite sprite)
+    {
+        if (sprite == null)
+        {
+            m_baseStoneSprite.gameObject.SetActive(false);
+        }
+        else
+        {
+            m_baseStoneSprite.gameObject.SetActive(true);
+            m_baseStoneSprite.sprite = sprite;
+        }
     }
 }

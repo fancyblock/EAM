@@ -18,3 +18,11 @@ public enum eTerrain
     nil,
     ground,
 }
+
+
+[Serializable]
+public enum eCityType
+{
+    city,
+    resSpot,
+}

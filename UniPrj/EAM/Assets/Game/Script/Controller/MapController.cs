@@ -90,7 +90,7 @@ public class MapController : IInitializable
                 tile.SetTile(tmt, ttt);
 
                 // set tile sorting order 
-                //TODO 
+                tile.SetOrder(j);
 
                 m_mapTiles[i, j] = tile;
             }
@@ -132,8 +132,10 @@ public class MapController : IInitializable
                 {
                     int tileImgIndex = m_tileImageConfig.m_shapeSequence.IndexOf(resultShape.id);
                     TileShape ts = m_tileImageConfig.m_normalTile[tileImgIndex];
+                    BaseStone bs = m_tileImageConfig.m_baseStone[tileImgIndex];
 
-                    tile.SetTileImage(ts.m_shape[0]);           //[TEMP]
+                    tile.SetTileImage(ts.m_shape[UnityEngine.Random.Range(0, ts.m_shape.Count)]);   // 随机给出一个
+                    tile.SetBaseStoneImage(bs.m_baseStone.Count == 0 ? null : bs.m_baseStone[UnityEngine.Random.Range(0, bs.m_baseStone.Count)]);
                 }
             }
         }
