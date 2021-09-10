@@ -81,7 +81,7 @@ public class MapController : IInitializable
                 GameObject go = GameObject.Instantiate(m_tilePrefab, m_mapContainer);
                 Transform trans = go.GetComponent<Transform>();
 
-                float xOffset = ((j + 1) % 2) * m_mapConfig.m_tileSize.x * 0.5f;          // 偶数行右偏
+                float xOffset = (j % 2) * m_mapConfig.m_tileSize.x * 0.5f;          // 偶数行右偏
                 trans.localPosition = new Vector2(i * m_mapConfig.m_tileSize.x + xOffset, -j * m_mapConfig.m_tileSize.y);
 
                 Tile tile = go.GetComponent<Tile>();
@@ -108,7 +108,33 @@ public class MapController : IInitializable
                 if (!tile.IS_GROUND)
                     continue;
 
-                //TODO 
+                TableTileShape tts = getTileAroundInfo(i, j);
+                TableTileShape resultShape = null;
+
+                foreach(TableTileShape shape in m_tableTileShape)
+                {
+                    if(tts.down == shape.down && tts.left == shape.left && tts.right == shape.right && tts.up == shape.up &&
+                        tts.left_down == shape.left_down && tts.left_up == shape.left_up &&
+                        tts.right_down == shape.right_down && tts.right_up == shape.right_up )
+                    {
+                        resultShape = shape;
+                        break;
+                    }
+                }
+
+                if(resultShape == null)
+                {
+                    Util.Log($"坐标({i}x{j})找不到对应的边缘模式", Color.red);
+
+                    tile.SetNoMactch();
+                }
+                else
+                {
+                    int tileImgIndex = m_tileImageConfig.m_shapeSequence.IndexOf(resultShape.id);
+                    TileShape ts = m_tileImageConfig.m_normalTile[tileImgIndex];
+
+                    tile.SetTileImage(ts.m_shape[0]);           //[TEMP]
+                }
             }
         }
     }
@@ -117,8 +143,51 @@ public class MapController : IInitializable
     {
         TableTileShape tts = new TableTileShape();
 
-        //TODO 
+        Tile right = getTile(x + 1, y);
+        Tile left = getTile(x - 1, y);
+        Tile up = getTile(x, y - 2);
+        Tile down = getTile(x, y + 2);
+
+        Tile rightUp = null, rightDown = null;
+        Tile leftUp = null, leftDown = null;
+
+        if( y % 2 == 0 )
+        {
+            rightUp = getTile(x, y - 1);
+            rightDown = getTile(x, y + 1);
+            leftUp = getTile(x - 1, y - 1);
+            leftDown = getTile(x - 1, y + 1);
+        }
+        else
+        {
+            rightUp = getTile(x + 1, y - 1);
+            rightDown = getTile(x + 1, y + 1);
+            leftUp = getTile(x, y - 1);
+            leftDown = getTile(x, y + 1);
+        }
+
+        bool boardDefault = false;           // 边界默认没东西 [HACK]
+
+        tts.right = right == null ? boardDefault : right.IS_GROUND;
+        tts.left = left == null ? boardDefault : left.IS_GROUND;
+        tts.up = up == null ? boardDefault : up.IS_GROUND;
+        tts.down = down == null ? boardDefault : down.IS_GROUND;
+        tts.right_up = rightUp == null ? boardDefault : rightUp.IS_GROUND;
+        tts.right_down = rightDown == null ? boardDefault : rightDown.IS_GROUND;
+        tts.left_up = leftUp == null ? boardDefault : leftUp.IS_GROUND;
+        tts.left_down = leftDown == null ? boardDefault : leftDown.IS_GROUND;
 
         return tts;
+    }
+
+    private Tile getTile(int x, int y)
+    {
+        if(x >= 0 && x < m_tableMap.m_width &&
+            y >= 0 && y < m_tableMap.m_height )
+        {
+            return m_mapTiles[x, y];
+        }
+
+        return null;
     }
 }

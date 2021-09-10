@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 public class Tile : MonoBehaviour
 {
     [SerializeField] SortingGroup m_render;
-    [SerializeField] GameObject m_tileGo;
+    [SerializeField] SpriteRenderer m_tileSprite;
 
     public TableMapTile TILE { get; private set; }
 
@@ -33,10 +33,10 @@ public class Tile : MonoBehaviour
         switch (tableTerrain.terrain)
         {
             case eTerrain.nil:
-                m_tileGo.SetActive(false);          //[TEMP]
+                m_tileSprite.gameObject.SetActive(false);          //[TEMP]
                 break;
             case eTerrain.ground:
-                m_tileGo.SetActive(true);           //[TEMP]
+                m_tileSprite.gameObject.SetActive(true);           //[TEMP]
                 break;
             default:
                 break;
@@ -49,5 +49,15 @@ public class Tile : MonoBehaviour
         {
             return TERRAIN.terrain == eTerrain.ground;
         }
+    }
+
+    public void SetNoMactch()
+    {
+        m_tileSprite.color = Color.red;     //[TEMP]
+    }
+
+    public void SetTileImage(Sprite sprite)
+    {
+        m_tileSprite.sprite = sprite;
     }
 }

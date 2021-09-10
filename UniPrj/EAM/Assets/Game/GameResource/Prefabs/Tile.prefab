@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_render: {fileID: 949702608975538169}
   m_tileGo: {fileID: 6400177783437783872}
+  m_tileSprite: {fileID: 4386777607081017298}
 --- !u!210 &949702608975538169
 SortingGroup:
   m_ObjectHideFlags: 0
