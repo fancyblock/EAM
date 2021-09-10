@@ -75,7 +75,8 @@ MonoBehaviour:
       - {fileID: 21300000, guid: 2531d4f3bb90b194ebcc4a7d15ef9960, type: 3}
     m_baseStone:
     - m_baseStone:
-      - {fileID: 21300000, guid: c3e578188e74e514688d756b339eb7a2, type: 3}
+      - {fileID: 21300000, guid: 5ab6dd62f7186e34c8535f87694efe19, type: 3}
+      - {fileID: 21300000, guid: 2301a4bc32b8ea947b8a7846c88fd1d1, type: 3}
     - m_baseStone:
       - {fileID: 21300000, guid: b2157d89307c79c42ac43b5d996b02c7, type: 3}
     - m_baseStone: []

@@ -41,6 +41,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 5b650c014f321764299b08a1803ac8d7, type: 3}
   - {fileID: 21300000, guid: 1651c14115032324eaf10626f9543473, type: 3}
+  - {fileID: 21300000, guid: 5ab6dd62f7186e34c8535f87694efe19, type: 3}
   - {fileID: 21300000, guid: b74f347288c97a14a8fda8d954351cd6, type: 3}
   - {fileID: 21300000, guid: b353a972db11e3f419b583b7488cae27, type: 3}
   - {fileID: 21300000, guid: a1db4f827a3cc8d4090493a25c973a30, type: 3}
@@ -88,6 +89,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: eeb3a61cd1791734f94edd62827efba5, type: 3}
   - {fileID: 21300000, guid: 798ead3c3cb653a44a2833224fa52772, type: 3}
   - {fileID: 21300000, guid: 5d69856c55cb54b4d97fab04806078f1, type: 3}
+  - {fileID: 21300000, guid: 2301a4bc32b8ea947b8a7846c88fd1d1, type: 3}
   - {fileID: 21300000, guid: a405b0ec0f7080c43baac2c51324379f, type: 3}
   - {fileID: 21300000, guid: 65bc000d4d064674d857aaa08d078a22, type: 3}
   - {fileID: 21300000, guid: 921a540dd77134b4c9fc7859ab3cddad, type: 3}
@@ -108,6 +110,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - shamo7
   - s13
+  - 22
   - 1
   - shamo2
   - 0
@@ -155,6 +158,7 @@ SpriteAtlas:
   - shamo11
   - 13
   - s7
+  - 24
   - s14
   - 19
   - ZuoXia3
