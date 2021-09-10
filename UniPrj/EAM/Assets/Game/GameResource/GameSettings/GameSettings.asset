@@ -30,6 +30,8 @@ MonoBehaviour:
     - edgeDownRight
     - edgeDownLeft
     - single
+    - leftBar
+    - rightBar
     m_normalTile:
     - m_shape:
       - {fileID: 21300000, guid: a29caca9325ae2f43aaf1e7cd3130d2f, type: 3}
@@ -61,4 +63,8 @@ MonoBehaviour:
       - {fileID: 21300000, guid: ec4616ad80578ef4e8c7293b8711cc75, type: 3}
     - m_shape:
       - {fileID: 21300000, guid: a1db4f827a3cc8d4090493a25c973a30, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 0d206d3bfe4b6a94fb36ba8e8ce7c35e, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 65bc000d4d064674d857aaa08d078a22, type: 3}
   m_tilePrefab: {fileID: 2686670442697246902, guid: 91f42b955d61ee649920ad6cabbe7d1e, type: 3}
