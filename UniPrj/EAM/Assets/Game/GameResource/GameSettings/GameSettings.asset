@@ -42,6 +42,10 @@ MonoBehaviour:
     - bridge2leftDown
     - bridge2leftUp
     - bridge2rightUp
+    - bridge2leftUp2
+    - bridge2rightUp2
+    - bridge2rightDown2
+    - bridge2leftDown2
     m_normalTile:
     - m_shape:
       - {fileID: 21300000, guid: a29caca9325ae2f43aaf1e7cd3130d2f, type: 3}
@@ -97,6 +101,14 @@ MonoBehaviour:
       - {fileID: 21300000, guid: ff7633378f0b5914e9eba775c179704c, type: 3}
     - m_shape:
       - {fileID: 21300000, guid: 31dd6b2e4404d8846937899a7f96b7cf, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 53089999dd20fe143aea1f4fc12f5d75, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: db2b6ccd13602f448b3b5c943b4334c2, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: 881ca397484fda84ab4b7aea10b8eb30, type: 3}
+    - m_shape:
+      - {fileID: 21300000, guid: db7259c2d51b44e4eaf7534981d2e3da, type: 3}
     m_baseStone:
     - m_baseStone:
       - {fileID: 21300000, guid: 5ab6dd62f7186e34c8535f87694efe19, type: 3}
@@ -145,4 +157,12 @@ MonoBehaviour:
       - {fileID: 21300000, guid: c3e578188e74e514688d756b339eb7a2, type: 3}
     - m_baseStone:
       - {fileID: 21300000, guid: 579b17ee2ee55ea49a4b422bdb3c5f92, type: 3}
+    - m_baseStone:
+      - {fileID: 21300000, guid: c3e578188e74e514688d756b339eb7a2, type: 3}
+    - m_baseStone:
+      - {fileID: 21300000, guid: 091a384dfefdbeb4eba8c93d63022205, type: 3}
+    - m_baseStone:
+      - {fileID: 21300000, guid: 579b17ee2ee55ea49a4b422bdb3c5f92, type: 3}
+    - m_baseStone:
+      - {fileID: 21300000, guid: c3e578188e74e514688d756b339eb7a2, type: 3}
   m_tilePrefab: {fileID: 2686670442697246902, guid: 91f42b955d61ee649920ad6cabbe7d1e, type: 3}
