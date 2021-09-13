@@ -44,6 +44,15 @@ public class MapController : BaseController
         return res;
     }
 
+    public Vector2Int Position2Tile(float x, float y)
+    {
+        Vector2Int res = new Vector2Int();
+
+        //TODO 
+
+        return res;
+    }
+
 
     private void loadMap()
     {
