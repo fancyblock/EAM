@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 
 
-[CreateAssetMenu(menuName = "EAM/Game Settings")]
+[CreateAssetMenu(menuName = "EAM/Map Settings")]
 public class SettingInstaller : ScriptableObjectInstaller<SettingInstaller>
 {
     public MapConfig m_mapCfg;
@@ -14,8 +14,8 @@ public class SettingInstaller : ScriptableObjectInstaller<SettingInstaller>
 
     public override void InstallBindings()
     {
-        Container.BindInstances(m_mapCfg);
-        Container.BindInstances(m_tileImageCfg);
+        Container.BindInstance(m_mapCfg);
+        Container.BindInstance(m_tileImageCfg);
         Container.BindInstance(m_tilePrefab).WithId("tile");
     }
 }

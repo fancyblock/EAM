@@ -3,7 +3,7 @@ using Zenject;
 using UnityEngine;
 using System;
 
-public class MapController : IInitializable
+public class MapController : BaseController
 {
     [Inject]
     private IGameSettingLoader m_loader;
@@ -26,16 +26,17 @@ public class MapController : IInitializable
     private Tile[,] m_mapTiles;
 
 
-    public void Initialize()
+    public override void Initialize()
     {
         Util.Log("Map initialize.");
 
-        //TODO 
-
-        LoadMap();
+        m_signalBus.Subscribe<SignalCreateMap>(loadMap);
     }
 
-    public void LoadMap()
+    public override void Tick() { }
+
+
+    private void loadMap()
     {
         Util.Log("LoadMap");
 
@@ -68,7 +69,6 @@ public class MapController : IInitializable
         createMap();
         refreshTileCorner();
     }
-
 
     private void createMap()
     {

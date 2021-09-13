@@ -10,6 +10,8 @@ public class GameInstaller : MonoInstaller
     {
         SignalBusInstaller.Install(Container);
 
+        Container.DeclareSignal<SignalCreateMap>();
+
 #if UNITY_EDITOR
         Container.Bind<IGameSettingLoader>().To<EditorGameSettingLoader>().AsSingle();
 #else
@@ -20,8 +22,9 @@ public class GameInstaller : MonoInstaller
         //    Container.Bind<MapRoad>().FromMethodMultiple((InjectContext context) => { return context.Container.Resolve<IGameSettingLoader>().LoadData<MapRoad>("MapRoad"); });
         //    Container.Bind<MapBuilding>().FromMethodMultiple((InjectContext context) => { return context.Container.Resolve<IGameSettingLoader>().LoadData<MapBuilding>("MapBuilding"); });
 
-        Container.Bind(typeof(ITickable), typeof(IInitializable), typeof(GameController)).To<GameController>().AsSingle();
-        Container.Bind(typeof(IInitializable), typeof(MapController)).To<MapController>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(MapController)).To<MapController>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(GameController)).To<GameController>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(BoatController)).To<BoatController>().AsSingle();
 
     }
 }

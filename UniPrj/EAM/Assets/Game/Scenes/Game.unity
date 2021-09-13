@@ -290,6 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: fe69d6a78a984d34eb549e4745502008, type: 2}
+  - {fileID: 11400000, guid: c6896fd726a24e744be9fb692558a3cd, type: 2}
   _monoInstallers:
   - {fileID: 334612546}
   _installerPrefabs: []
@@ -745,7 +746,7 @@ Canvas:
   m_GameObject: {fileID: 2083213929}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
