@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e15795fe4879794c83e208541018ce2, type: 3}
   m_Name: BoatConfig
   m_EditorClassIdentifier: 
+  m_boatCfg:
+    m_normalVelocity: {x: 0, y: 0}
+  m_startTile: {x: 2, y: 3}

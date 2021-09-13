@@ -33,6 +33,17 @@ public class MapController : BaseController
 
     public override void Tick() { }
 
+    public Vector2 Tile2Position(float x, float y)
+    {
+        Vector2 res = new Vector2();
+
+        float xOffset = (y % 2) * m_mapConfig.m_tileSize.x * 0.5f;          // 偶数行右偏
+        res.x = x * m_mapConfig.m_tileSize.x + xOffset;
+        res.y = -y * m_mapConfig.m_tileSize.y;
+
+        return res;
+    }
+
 
     private void loadMap()
     {
@@ -79,8 +90,7 @@ public class MapController : BaseController
                 GameObject go = GameObject.Instantiate(m_tilePrefab, m_mapContainer);
                 Transform trans = go.GetComponent<Transform>();
 
-                float xOffset = (j % 2) * m_mapConfig.m_tileSize.x * 0.5f;          // 偶数行右偏
-                trans.localPosition = new Vector2(i * m_mapConfig.m_tileSize.x + xOffset, -j * m_mapConfig.m_tileSize.y);
+                trans.localPosition = Tile2Position(i, j);
 
                 Tile tile = go.GetComponent<Tile>();
                 TableMapTile tmt = m_tableMapTile[m_tableMap.m_tiles[i, j]];

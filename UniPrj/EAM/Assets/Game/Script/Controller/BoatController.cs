@@ -10,6 +10,8 @@ public class BoatController : BaseController
     private BoatConfig m_boatCfg;
     [Inject(Id = "BoatInitPos")]
     private Vector2Int m_boatInitPos;
+    [Inject]
+    private Boat m_boat;
 
 
     public override void Initialize()
@@ -26,6 +28,6 @@ public class BoatController : BaseController
     {
         Util.Log("Crate Boat", Color.green);
 
-        //TODO 
+        m_boat.SetPosition(m_boatInitPos.x, m_boatInitPos.y);
     }
 }
