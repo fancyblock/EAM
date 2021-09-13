@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BoatConfig
   m_EditorClassIdentifier: 
   m_boatCfg:
-    m_normalVelocity: {x: 100, y: 0}
-  m_startTile: {x: 15, y: 74}
+    m_normalVelocity: {x: 175, y: 0}
+  m_startTile: {x: 195, y: 329}
