@@ -14,7 +14,7 @@ public class BoatController : BaseController
 
     public override void Initialize()
     {
-        //TODO 
+        m_signalBus.Subscribe<SignalInitBoat>(initBoat);
     }
 
     public override void Tick()
@@ -22,8 +22,10 @@ public class BoatController : BaseController
         //TODO 
     }
 
-    private void InitBoat()
+    private void initBoat()
     {
+        Util.Log("Crate Boat", Color.green);
+
         //TODO 
     }
 }

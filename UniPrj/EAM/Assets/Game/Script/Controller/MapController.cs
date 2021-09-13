@@ -7,8 +7,6 @@ public class MapController : BaseController
 {
     [Inject]
     private IGameSettingLoader m_loader;
-    [Inject(Id = "MapCamera")]
-    private Camera m_mapCamera;
     [Inject(Id = "MapContainer")]
     private Transform m_mapContainer;
     [Inject]

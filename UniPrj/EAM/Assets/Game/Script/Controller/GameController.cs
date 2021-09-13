@@ -27,20 +27,15 @@ public class GameController : BaseController
 
     public override void Tick()
     {
-        init();
-
-        //TODO 
-    }
-
-
-    private void init()
-    {
+        ////////////////////////////////////////[TEMP]
         if (m_init)
             return;
 
         m_signalBus.Fire(new SignalCreateMap());
-        //TODO 
+        m_signalBus.Fire(new SignalInitBoat());
 
         m_init = true;
+        ////////////////////////////////////////
     }
+
 }
