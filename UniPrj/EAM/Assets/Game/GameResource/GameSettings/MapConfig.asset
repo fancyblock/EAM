@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_mapCfg:
     m_tileSize: {x: 235, y: 58.5}
-    m_fogRadius: 3
+    m_fogRadius: 700
   m_tileImageCfg:
     m_shapeSequence:
     - center

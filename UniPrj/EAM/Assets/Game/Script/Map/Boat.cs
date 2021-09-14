@@ -46,7 +46,7 @@ public class Boat : MonoBehaviour
             if(newTilePos.x != m_curPosition.x || newTilePos.y != m_curPosition.y)
             {
                 m_curPosition = newTilePos;
-                m_signalBus.Fire(new SignalBoatPositionChange() { X = newTilePos.x, Y = newTilePos.y });
+                m_signalBus.Fire(new SignalBoatPositionChange() { X = newTilePos.x, Y = newTilePos.y, MapPosition = transform.localPosition });
             }
         }
     }
@@ -56,7 +56,7 @@ public class Boat : MonoBehaviour
         transform.localPosition = m_mapController.Tile2Position(x, y);
 
         m_curPosition = new Vector2Int(x, y);
-        m_signalBus.Fire(new SignalBoatPositionChange() { X = x, Y = y });
+        m_signalBus.Fire(new SignalBoatPositionChange() { X = x, Y = y, MapPosition = transform.localPosition });
     }
 
     public void SetVelocity(float velocity)

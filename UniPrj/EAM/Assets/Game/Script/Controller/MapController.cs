@@ -89,7 +89,7 @@ public class MapController : BaseController
     {
         Util.Log($"Arrive tile {param.X}x{param.Y}. ");
 
-        refreshFog(param.X, param.Y);
+        refreshFog(param.X, param.Y, param.MapPosition);
     }
 
     /// <summary>
@@ -97,16 +97,16 @@ public class MapController : BaseController
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
-    private void refreshFog(int x, int y)
+    private void refreshFog(int x, int y, Vector2 mapPosition)
     {
-        int radius = m_mapConfig.m_fogRadius + 2;
+        int range = 16;
 
-        for(int i = x - radius; i <= x + radius; i++)
+        for(int i = x - range; i <= x + range; i++)
         {
-            for(int j = y - radius; j <= y + radius; j++)
+            for(int j = y - range; j <= y + range; j++)
             {
                 if (i >= 0 && j >= 0 && i < m_tableMap.m_width && j < m_tableMap.m_height)
-                    m_mapFogs[i, j].RefreshDisplay(i, j, m_mapConfig.m_fogRadius);
+                    m_mapFogs[i, j].RefreshDisplay(i, j, mapPosition,  m_mapConfig.m_fogRadius);
             }
         }
     }

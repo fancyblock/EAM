@@ -38,11 +38,11 @@ public class Fog : MonoBehaviour
         m_fog.sortingOrder = order;
     }
 
-    public void RefreshDisplay(int x, int y, int radius)
+    public void RefreshDisplay(int x, int y, Vector2 mapPosition, int radius)
     {
         if (m_type == eFogType.nil)
             return;
 
-        gameObject.SetActive((new Vector2(x,y) - new Vector2(m_position.x, m_position.y)).magnitude > radius);
+        gameObject.SetActive((mapPosition - new Vector2(transform.localPosition.x, transform.localPosition.y)).magnitude > radius);
     }
 }
