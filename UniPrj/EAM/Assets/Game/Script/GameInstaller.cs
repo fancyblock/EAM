@@ -22,6 +22,7 @@ public class GameInstaller : MonoInstaller
         // Container.Bind<MapBuilding>().FromMethodMultiple((InjectContext context) => { return context.Container.Resolve<IGameSettingLoader>().LoadData<MapBuilding>("MapBuilding"); });
 
         Container.BindFactory<Tile, Tile.Factory>().FromComponentInNewPrefabResource("Tile");       //[TEMP]
+        Container.BindFactory<Fog, Fog.Factory>().FromComponentInNewPrefabResource("Fog");
 
         initControllers();
     }
@@ -37,6 +38,7 @@ public class GameInstaller : MonoInstaller
         Container.DeclareSignal<SignalCreateMap>();
         Container.DeclareSignal<SignalInitBoat>();
         Container.DeclareSignal<SignalTouchMap>();
+        Container.DeclareSignal<SignalBoatPositionChange>();
     }
 
     /// <summary>

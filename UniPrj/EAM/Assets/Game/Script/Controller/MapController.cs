@@ -9,14 +9,16 @@ public class MapController : BaseController
     private IGameSettingLoader m_loader;
     [Inject(Id = "MapContainer")]
     private Transform m_mapContainer;
+    [Inject(Id = "CloudContainer")]
+    private Transform m_fogContainer;
     [Inject]
     private MapConfig m_mapConfig;
-    [Inject(Id = "tile")]
-    private GameObject m_tilePrefab;
     [Inject]
     private TileImageConfig m_tileImageConfig;
     [Inject]
     private Tile.Factory m_tileFactory;
+    [Inject]
+    private Fog.Factory m_fogFactory;
     [Inject(Id = "ClickedArea")]
     private ClickedArea m_clickedArea;
 
@@ -26,6 +28,7 @@ public class MapController : BaseController
     private List<TableTileShape> m_tableTileShape;
 
     private Tile[,] m_mapTiles;
+    private Fog[,] m_mapFogs;
 
 
     public override void Initialize()
@@ -34,6 +37,7 @@ public class MapController : BaseController
 
         m_signalBus.Subscribe<SignalCreateMap>(loadMap);
         m_signalBus.Subscribe<SignalTouchMap>(onMapTouch);
+        m_signalBus.Subscribe<SignalBoatPositionChange>(onBoatPositionChange);
     }
 
     public override void Tick() { }
@@ -77,6 +81,35 @@ public class MapController : BaseController
         m_clickedArea.ShowAt(pos.x, pos.y);
     }
 
+    /// <summary>
+    /// 飞船位置改变
+    /// </summary>
+    /// <param name="param"></param>
+    private void onBoatPositionChange(SignalBoatPositionChange param)
+    {
+        Util.Log($"Arrive tile {param.X}x{param.Y}. ");
+
+        refreshFog(param.X, param.Y);
+    }
+
+    /// <summary>
+    /// 刷新迷雾
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    private void refreshFog(int x, int y)
+    {
+        int radius = m_mapConfig.m_fogRadius + 2;
+
+        for(int i = x - radius; i <= x + radius; i++)
+        {
+            for(int j = y - radius; j <= y + radius; j++)
+            {
+                if (i >= 0 && j >= 0 && i < m_tableMap.m_width && j < m_tableMap.m_height)
+                    m_mapFogs[i, j].RefreshDisplay(i, j, m_mapConfig.m_fogRadius);
+            }
+        }
+    }
 
     private void loadMap()
     {
@@ -115,25 +148,32 @@ public class MapController : BaseController
     private void createMap()
     {
         m_mapTiles = new Tile[m_tableMap.m_width, m_tableMap.m_height];
+        m_mapFogs = new Fog[m_tableMap.m_width, m_tableMap.m_height];
 
         for (int i = 0; i < m_tableMap.m_width; i++)
         {
             for(int j = 0; j < m_tableMap.m_height; j++)
             {
+                TableMapTile tmt = m_tableMapTile[m_tableMap.m_tiles[i, j]];
+
                 Tile tile = m_tileFactory.Create();
                 tile.transform.SetParent(m_mapContainer);
-                Transform trans = tile.GetComponent<Transform>();
+                tile.GetComponent<Transform>().localPosition = Tile2Position(i, j);
 
-                trans.localPosition = Tile2Position(i, j);
-
-                TableMapTile tmt = m_tableMapTile[m_tableMap.m_tiles[i, j]];
-                TableTileTerrain ttt = m_tableTerrain[tmt.terrain];
-                tile.SetTile(tmt, ttt);
-
-                // set tile sorting order 
+                tile.SetTile(tmt, m_tableTerrain[tmt.terrain]);
                 tile.SetOrder(j);
 
                 m_mapTiles[i, j] = tile;
+
+
+                Fog fog = m_fogFactory.Create();
+                fog.transform.SetParent(m_fogContainer);
+                fog.GetComponent<Transform>().localPosition = Tile2Position(i, j);
+
+                fog.SetFog(tmt.fog, i, j);
+                fog.SetOrder(j+1000);
+
+                m_mapFogs[i, j] = fog;
             }
         }
     }

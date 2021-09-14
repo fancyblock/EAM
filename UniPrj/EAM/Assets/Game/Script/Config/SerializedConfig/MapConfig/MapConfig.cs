@@ -8,4 +8,5 @@ using System;
 public class MapConfig 
 {
     public Vector2 m_tileSize;
+    public int m_fogRadius;
 }
