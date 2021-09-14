@@ -7,6 +7,6 @@ using System;
 [Serializable]
 public class BoatConfig
 {
-    public Vector2 m_normalVelocity;
+    public float m_normalVelocity;
     //TODO 
 }
