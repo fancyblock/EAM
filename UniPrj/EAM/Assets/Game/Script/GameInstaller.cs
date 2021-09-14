@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Zenject;
 
 
@@ -17,13 +13,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IGameSettingLoader>().To<RuntimeGameSettingLoader>().AsSingle();
 #endif
 
-        // game config
-        // Container.Bind<MapRoad>().FromMethodMultiple((InjectContext context) => { return context.Container.Resolve<IGameSettingLoader>().LoadData<MapRoad>("MapRoad"); });
-        // Container.Bind<MapBuilding>().FromMethodMultiple((InjectContext context) => { return context.Container.Resolve<IGameSettingLoader>().LoadData<MapBuilding>("MapBuilding"); });
-
-        Container.BindFactory<Tile, Tile.Factory>().FromComponentInNewPrefabResource("Tile");       //[TEMP]
-        Container.BindFactory<Fog, Fog.Factory>().FromComponentInNewPrefabResource("Fog");
-
+        initFactory();
         initControllers();
     }
 
@@ -51,5 +41,11 @@ public class GameInstaller : MonoInstaller
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(BoatController)).To<BoatController>().AsSingle();
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(MapCameraController)).To<MapCameraController>().AsSingle();
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(TouchController)).To<TouchController>().AsSingle();
+    }
+
+    private void initFactory()
+    {
+        Container.BindFactory<Tile, Tile.Factory>().FromComponentInNewPrefabResource("Tile");       //[TEMP]
+        Container.BindFactory<Fog, Fog.Factory>().FromComponentInNewPrefabResource("Fog");
     }
 }
