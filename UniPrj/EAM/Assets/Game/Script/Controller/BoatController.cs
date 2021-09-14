@@ -8,14 +8,13 @@ using System;
 public class BoatController : BaseController
 {
     [Inject]
+    private MapController m_mapController;
+    [Inject]
     private BoatConfig m_boatCfg;
     [Inject(Id = "BoatInitPos")]
     private Vector2Int m_boatInitPos;
     [Inject]
     private Boat m_boat;
-
-    private Vector2 m_destPosition;
-    private bool m_moving = false;
 
 
     public override void Initialize()
@@ -27,21 +26,7 @@ public class BoatController : BaseController
 
     public override void Tick()
     {
-        if(m_moving)
-        {
-            //////////////////////////////////////////[TEMP]
-            Vector2 boatPos = m_boat.transform.position;
-            Vector2 destPos = m_destPosition;
-
-            if((boatPos - destPos).magnitude <= float.Epsilon)
-            {
-                m_moving = false;
-            }
-            else
-            {
-                m_boat.transform.position = boatPos + (destPos - boatPos).normalized * m_boatCfg.m_normalVelocity.x * Time.deltaTime;
-            }
-        }
+        //TODO 
     }
 
     private void initBoat()
@@ -49,13 +34,15 @@ public class BoatController : BaseController
         Util.Log("Crate Boat", Color.green);
 
         m_boat.SetPosition(m_boatInitPos.x, m_boatInitPos.y);
+        m_boat.SetVelocity(m_boatCfg.m_normalVelocity);
     }
 
     private void onMapTouch(SignalTouchMap signal)
     {
         Util.Log($"Goto there {signal.m_position.ToString()}", Color.blue);
 
-        m_destPosition = signal.m_position;
-        m_moving = true;
+        Vector2Int tilePos = m_mapController.Position2Tile(signal.m_position.x, signal.m_position.y);
+
+        m_boat.MoveTo(tilePos.x, tilePos.y);
     }
 }

@@ -15,6 +15,10 @@ public class MapController : BaseController
     private GameObject m_tilePrefab;
     [Inject]
     private TileImageConfig m_tileImageConfig;
+    [Inject]
+    private Tile.Factory m_tileFactory;
+    [Inject(Id = "ClickedArea")]
+    private ClickedArea m_clickedArea;
 
     private TableMap m_tableMap;
     private Dictionary<string, TableMapTile> m_tableMapTile;
@@ -29,6 +33,7 @@ public class MapController : BaseController
         Util.Log("Map initialize.");
 
         m_signalBus.Subscribe<SignalCreateMap>(loadMap);
+        m_signalBus.Subscribe<SignalTouchMap>(onMapTouch);
     }
 
     public override void Tick() { }
@@ -48,9 +53,28 @@ public class MapController : BaseController
     {
         Vector2Int res = new Vector2Int();
 
-        //TODO 
+        res.y = Mathf.RoundToInt(-y / m_mapConfig.m_tileSize.y);
+
+        if (res.y % 2 == 0)
+            res.x = Mathf.RoundToInt(x / m_mapConfig.m_tileSize.x);
+        else
+            res.x = Mathf.RoundToInt(x / m_mapConfig.m_tileSize.x - 0.5f);
 
         return res;
+    }
+
+
+    /// <summary>
+    /// 地图块被点中
+    /// </summary>
+    /// <param name="signal"></param>
+    private void onMapTouch(SignalTouchMap signal)
+    {
+        Vector2 mapPosition = signal.m_position;
+        Vector2Int tilePosition = Position2Tile(mapPosition.x, mapPosition.y);
+        Vector2 pos = Tile2Position(tilePosition.x, tilePosition.y);
+
+        m_clickedArea.ShowAt(pos.x, pos.y);
     }
 
 
@@ -96,12 +120,12 @@ public class MapController : BaseController
         {
             for(int j = 0; j < m_tableMap.m_height; j++)
             {
-                GameObject go = GameObject.Instantiate(m_tilePrefab, m_mapContainer);
-                Transform trans = go.GetComponent<Transform>();
+                Tile tile = m_tileFactory.Create();
+                tile.transform.SetParent(m_mapContainer);
+                Transform trans = tile.GetComponent<Transform>();
 
                 trans.localPosition = Tile2Position(i, j);
 
-                Tile tile = go.GetComponent<Tile>();
                 TableMapTile tmt = m_tableMapTile[m_tableMap.m_tiles[i, j]];
                 TableTileTerrain ttt = m_tableTerrain[tmt.terrain];
                 tile.SetTile(tmt, ttt);
