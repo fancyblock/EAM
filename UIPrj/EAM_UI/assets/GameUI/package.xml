@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="1ynvv2wv">
+  <resources>
+    <component id="jrx93" name="UIStart.xml" path="/"/>
+    <image id="b7714" name="Background.jpg" path="/SciFi_FPS_UI/"/>
+    <image id="b7715" name="CurrencyContainer.png" path="/SciFi_FPS_UI/"/>
+    <image id="b7716" name="FriendProfile.png" path="/SciFi_FPS_UI/"/>
+    <image id="b7717" name="NotificatonIcon.png" path="/SciFi_FPS_UI/"/>
+    <image id="b7718" name="PlayerProfile.png" path="/SciFi_FPS_UI/"/>
+    <image id="b7719" name="TabSelected.png" path="/SciFi_FPS_UI/"/>
+    <image id="b771a" name="TabUnselected.png" path="/SciFi_FPS_UI/"/>
+    <image id="b771b" name="Button.png" path="/SciFi_FPS_UI/"/>
+    <image id="b771c" name="ButtonPressed.png" path="/SciFi_FPS_UI/"/>
+    <image id="b771d" name="ExitBackground.png" path="/SciFi_FPS_UI/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>
