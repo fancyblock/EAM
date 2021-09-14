@@ -15,6 +15,8 @@ public class MapController : BaseController
     private GameObject m_tilePrefab;
     [Inject]
     private TileImageConfig m_tileImageConfig;
+    [Inject]
+    private Tile.Factory m_tileFactory;
 
     private TableMap m_tableMap;
     private Dictionary<string, TableMapTile> m_tableMapTile;
@@ -96,12 +98,11 @@ public class MapController : BaseController
         {
             for(int j = 0; j < m_tableMap.m_height; j++)
             {
-                GameObject go = GameObject.Instantiate(m_tilePrefab, m_mapContainer);
-                Transform trans = go.GetComponent<Transform>();
+                Tile tile = m_tileFactory.Create();
+                Transform trans = tile.GetComponent<Transform>();
 
                 trans.localPosition = Tile2Position(i, j);
 
-                Tile tile = go.GetComponent<Tile>();
                 TableMapTile tmt = m_tableMapTile[m_tableMap.m_tiles[i, j]];
                 TableTileTerrain ttt = m_tableTerrain[tmt.terrain];
                 tile.SetTile(tmt, ttt);

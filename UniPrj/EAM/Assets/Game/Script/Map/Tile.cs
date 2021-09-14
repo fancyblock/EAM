@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Zenject;
 
 
 public class Tile : MonoBehaviour
@@ -10,6 +11,10 @@ public class Tile : MonoBehaviour
     [SerializeField] SortingGroup m_render;
     [SerializeField] SpriteRenderer m_tileSprite;
     [SerializeField] SpriteRenderer m_baseStoneSprite;
+
+    public class Factory : PlaceholderFactory<Tile>
+    {
+    }
 
     public TableMapTile TILE { get; private set; }
 
