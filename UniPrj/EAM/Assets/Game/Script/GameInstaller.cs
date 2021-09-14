@@ -21,7 +21,7 @@ public class GameInstaller : MonoInstaller
         // Container.Bind<MapRoad>().FromMethodMultiple((InjectContext context) => { return context.Container.Resolve<IGameSettingLoader>().LoadData<MapRoad>("MapRoad"); });
         // Container.Bind<MapBuilding>().FromMethodMultiple((InjectContext context) => { return context.Container.Resolve<IGameSettingLoader>().LoadData<MapBuilding>("MapBuilding"); });
 
-        Container.BindFactory<Tile, Tile.Factory>().FromComponentInNewPrefabResource("Tile");
+        Container.BindFactory<Tile, Tile.Factory>().FromComponentInNewPrefabResource("Tile");       //[TEMP]
 
         initControllers();
     }
