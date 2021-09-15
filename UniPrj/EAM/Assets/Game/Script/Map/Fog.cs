@@ -43,6 +43,14 @@ public class Fog : MonoBehaviour
         if (m_type == eFogType.nil)
             return;
 
-        gameObject.SetActive((mapPosition - new Vector2(transform.localPosition.x, transform.localPosition.y)).magnitude > radius);
+        if (m_type == eFogType.permanent)
+        {
+            gameObject.SetActive((mapPosition - new Vector2(transform.localPosition.x, transform.localPosition.y)).magnitude > radius);
+        }
+        else if (m_type == eFogType.temporary)
+        {
+            if((mapPosition - new Vector2(transform.localPosition.x, transform.localPosition.y)).magnitude <= radius)
+                gameObject.SetActive(false);
+        }
     }
 }

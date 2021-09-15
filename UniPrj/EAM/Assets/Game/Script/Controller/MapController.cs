@@ -67,6 +67,21 @@ public class MapController : BaseController
         return res;
     }
 
+    public Tile GetTile(int x, int y)
+    {
+        Tile tile = null;
+
+        try
+        {
+            tile = m_mapTiles[x, y];
+        }
+        catch(Exception e)
+        {
+        }
+
+        return tile;
+    }
+
 
     /// <summary>
     /// 地图块被点中

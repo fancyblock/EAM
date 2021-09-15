@@ -43,6 +43,11 @@ public class BoatController : BaseController
 
         Vector2Int tilePos = m_mapController.Position2Tile(signal.m_position.x, signal.m_position.y);
 
+        Tile tile = m_mapController.GetTile(tilePos.x, tilePos.y);
+
+        if (tile.TERRAIN.terrain == eTerrain.obstacle)      //[TEMP]
+            return;
+
         m_boat.MoveTo(tilePos.x, tilePos.y);
     }
 }
