@@ -292,6 +292,7 @@ MonoBehaviour:
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: fe69d6a78a984d34eb549e4745502008, type: 2}
   - {fileID: 11400000, guid: c6896fd726a24e744be9fb692558a3cd, type: 2}
+  - {fileID: 11400000, guid: 76ca1bd3742f26d44a702da195cd2d0e, type: 2}
   _monoInstallers:
   - {fileID: 334612546}
   - {fileID: 334612547}
@@ -858,11 +859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 810484564441995655, guid: 6d348feada7bf77488f79bf5eb2e0e37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -332
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 810484564441995655, guid: 6d348feada7bf77488f79bf5eb2e0e37, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 419
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 810484564441995655, guid: 6d348feada7bf77488f79bf5eb2e0e37, type: 3}
       propertyPath: m_LocalPosition.z
@@ -923,11 +924,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2555272515340471619, guid: ef86e851fd73255459f2552b2612a3a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 2555272515340471619, guid: ef86e851fd73255459f2552b2612a3a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -274
       objectReference: {fileID: 0}
     - target: {fileID: 2555272515340471619, guid: ef86e851fd73255459f2552b2612a3a1, type: 3}
       propertyPath: m_LocalPosition.z

@@ -47,5 +47,7 @@ public class GameInstaller : MonoInstaller
     {
         Container.BindFactory<Tile, Tile.Factory>().FromComponentInNewPrefabResource("Tile");       //[TEMP]
         Container.BindFactory<Fog, Fog.Factory>().FromComponentInNewPrefabResource("Fog");
+        Container.BindFactory<City, City.Factory>().FromComponentInNewPrefabResource("City");
+        Container.BindFactory<MapItem, MapItem.Factory>().FromComponentInNewPrefabResource("MapItem");
     }
 }

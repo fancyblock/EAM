@@ -7,24 +7,34 @@ public class MapController : BaseController
 {
     [Inject]
     private IGameSettingLoader m_loader;
+
     [Inject(Id = "MapContainer")]
     private Transform m_mapContainer;
     [Inject(Id = "CloudContainer")]
     private Transform m_fogContainer;
+
     [Inject]
     private MapConfig m_mapConfig;
     [Inject]
     private TileImageConfig m_tileImageConfig;
+
     [Inject]
     private Tile.Factory m_tileFactory;
     [Inject]
     private Fog.Factory m_fogFactory;
+    [Inject]
+    private City.Factory m_cityFactory;
+    [Inject]
+    private MapItem.Factory m_mapItemFactory;
+
     [Inject(Id = "ClickedArea")]
     private ClickedArea m_clickedArea;
 
     private TableMap m_tableMap;
     private Dictionary<string, TableMapTile> m_tableMapTile;
     private Dictionary<string, TableTileTerrain> m_tableTerrain;
+    private Dictionary<string, TableCity> m_tableCity;
+    private Dictionary<string, TableMapItem> m_tableMapItem;
     private List<TableTileShape> m_tableTileShape;
 
     private Tile[,] m_mapTiles;
@@ -156,6 +166,16 @@ public class MapController : BaseController
                 m_tableMap.m_tiles[i,j] = rawTableMap[i, j].ToString();
         }
 
+        var rawTableCity = m_loader.LoadData<TableCity>("TableCity");
+        m_tableCity = new Dictionary<string, TableCity>();
+        foreach (var c in rawTableCity)
+            m_tableCity.Add(c.id, c);
+
+        var rawTableMapItem = m_loader.LoadData<TableMapItem>("TableMapItem");
+        m_tableMapItem = new Dictionary<string, TableMapItem>();
+        foreach (var mi in rawTableMapItem)
+            m_tableMapItem.Add(mi.id, mi);
+
         createMap();
         refreshTileCorner();
     }
@@ -171,22 +191,44 @@ public class MapController : BaseController
             {
                 TableMapTile tmt = m_tableMapTile[m_tableMap.m_tiles[i, j]];
 
+                // tile
                 Tile tile = m_tileFactory.Create();
                 tile.transform.SetParent(m_mapContainer);
-                tile.GetComponent<Transform>().localPosition = Tile2Position(i, j);
+                tile.transform.localPosition = Tile2Position(i, j);
 
                 tile.SetTile(tmt, m_tableTerrain[tmt.terrain]);
                 tile.SetOrder(j);
 
                 m_mapTiles[i, j] = tile;
 
+                // city
+                if(!string.IsNullOrEmpty(tmt.cityId) && tmt.cityId != "nil")
+                {
+                    City city = m_cityFactory.Create();
+                    city.transform.SetParent(m_mapContainer);
+                    city.transform.localPosition = Tile2Position(i, j);
 
+                    city.SetCity(m_tableCity[tmt.cityId]);
+                    city.SetOrder(j + m_mapConfig.m_mapItemOrderOffset);
+                }
+                // item
+                else if(!string.IsNullOrEmpty(tmt.itemId))
+                {
+                    MapItem mapItem = m_mapItemFactory.Create();
+                    mapItem.transform.SetParent(m_mapContainer);
+                    mapItem.transform.localPosition = Tile2Position(i, j);
+
+                    //TODO 
+                    mapItem.SetOrder(j + m_mapConfig.m_mapItemOrderOffset);
+                }
+
+                // fog
                 Fog fog = m_fogFactory.Create();
                 fog.transform.SetParent(m_fogContainer);
-                fog.GetComponent<Transform>().localPosition = Tile2Position(i, j);
+                fog.transform.localPosition = Tile2Position(i, j);
 
                 fog.SetFog(tmt.fog, i, j);
-                fog.SetOrder(j+1000);
+                fog.SetOrder(j + m_mapConfig.m_fogOrderOffset);
 
                 m_mapFogs[i, j] = fog;
             }
