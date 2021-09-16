@@ -24,6 +24,8 @@ public class MapController : BaseController
     private Fog.Factory m_fogFactory;
     [Inject]
     private City.Factory m_cityFactory;
+    [Inject]
+    private MapItem.Factory m_mapItemFactory;
 
     [Inject(Id = "ClickedArea")]
     private ClickedArea m_clickedArea;
@@ -212,7 +214,12 @@ public class MapController : BaseController
                 // item
                 else if(!string.IsNullOrEmpty(tmt.itemId))
                 {
+                    MapItem mapItem = m_mapItemFactory.Create();
+                    mapItem.transform.SetParent(m_mapContainer);
+                    mapItem.transform.localPosition = Tile2Position(i, j);
+
                     //TODO 
+                    mapItem.SetOrder(j + m_mapConfig.m_mapItemOrderOffset);
                 }
 
                 // fog
