@@ -5,10 +5,8 @@ using System;
 
 
 [Serializable]
-public class TableCity 
+public class MapImageConfig 
 {
-    public string id;
-
-    public eCityType type;
-    public string display;
+    public List<Sprite> m_cityImages;
+    public List<Sprite> m_mapItemImages;
 }

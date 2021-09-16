@@ -8,5 +8,5 @@ public class TableMapItem
 {
     public string id;
 
-    //TODO 
+    public string display;
 }

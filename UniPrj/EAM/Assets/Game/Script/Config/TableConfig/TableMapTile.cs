@@ -10,7 +10,8 @@ public class TableMapTile
 
     public string terrain;
     public int safe;
-    public string item;
+    public string itemId;
     public string cityId;
+    public string eventId;
     public eFogType fog;
 }
