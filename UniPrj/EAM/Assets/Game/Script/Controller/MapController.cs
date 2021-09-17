@@ -212,13 +212,13 @@ public class MapController : BaseController
                     city.SetOrder(j + m_mapConfig.m_mapItemOrderOffset);
                 }
                 // item
-                else if(!string.IsNullOrEmpty(tmt.itemId))
+                else if(!string.IsNullOrEmpty(tmt.itemId) && tmt.itemId != "nil")
                 {
                     MapItem mapItem = m_mapItemFactory.Create();
                     mapItem.transform.SetParent(m_mapContainer);
                     mapItem.transform.localPosition = Tile2Position(i, j);
 
-                    //TODO 
+                    mapItem.SetMapItem(m_tableMapItem[tmt.itemId]);
                     mapItem.SetOrder(j + m_mapConfig.m_mapItemOrderOffset);
                 }
 

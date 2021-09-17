@@ -39,6 +39,7 @@ public class Tile : MonoBehaviour
                 m_tileSprite.gameObject.SetActive(false);          //[TEMP]
                 break;
             case eTerrain.ground:
+            case eTerrain.obstacle:
                 m_tileSprite.gameObject.SetActive(true);           //[TEMP]
                 break;
             default:
