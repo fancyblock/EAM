@@ -57,7 +57,7 @@ public class Fog
             if (m_active)
             {
                 m_fogGo = m_pool.Spawn();
-
+                m_fogGo.transform.SetParent(m_goParent);
                 m_fogGo.transform.localPosition = m_position;
                 m_fogGo.SetOrder(m_sortingOrder);
             }

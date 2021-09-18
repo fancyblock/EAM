@@ -54,6 +54,7 @@ public class Tile
                     m_tileGo.SetTileColor(Color.red);
 #endif
 
+                m_tileGo.transform.SetParent(m_goParent);
                 m_tileGo.transform.localPosition = m_position;
                 m_tileGo.SetOrder(m_sortingOrder);
                 m_tileGo.SetTileSprite(m_tileSprite);
