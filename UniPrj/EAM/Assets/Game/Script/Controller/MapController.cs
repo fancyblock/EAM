@@ -112,9 +112,23 @@ public class MapController : BaseController
     /// <param name="param"></param>
     private void onBoatPositionChange(SignalBoatPositionChange param)
     {
-        Util.Log($"Arrive tile {param.X}x{param.Y}. ");
-
+        updateTileDisplay(param.X, param.Y);
         refreshFog(param.X, param.Y, param.MapPosition);
+    }
+
+    private void updateTileDisplay(int x, int y)
+    {
+        int xRange = 4;     /////////////////////[TEMP]
+        int yRange = 25;    
+
+        for(int i = x - xRange; i <= x + xRange; i++)
+        {
+            for(int j = y - yRange; j <= y + yRange; j++)
+            {
+                if (i >= 0 && j >= 0 && i < m_tableMap.m_width && j < m_tableMap.m_height)
+                    m_mapTiles[i, j].ACTIVE_DISPLAY = true;
+            }
+        }
     }
 
     /// <summary>
@@ -124,7 +138,7 @@ public class MapController : BaseController
     /// <param name="y"></param>
     private void refreshFog(int x, int y, Vector2 mapPosition)
     {
-        int range = 16;
+        int range = 16;     /////////////////////[TEMP]
 
         for(int i = x - range; i <= x + range; i++)
         {
@@ -193,9 +207,8 @@ public class MapController : BaseController
 
                 // tile
                 Tile tile = m_tileFactory.Create();
-                tile.transform.SetParent(m_mapContainer);
-                tile.transform.localPosition = Tile2Position(i, j);
-
+                tile.SetTransformParent(m_mapContainer);
+                tile.SetPosition(Tile2Position(i, j));
                 tile.SetTile(tmt, m_tableTerrain[tmt.terrain]);
                 tile.SetOrder(j);
 
@@ -263,8 +276,9 @@ public class MapController : BaseController
                 if(resultShape == null)
                 {
                     Util.Log($"坐标({i}x{j})找不到对应的边缘模式", Color.red);
-
-                    tile.SetNoMactch();
+#if UNITY_EDITOR
+                    tile._SetNoMatch();
+#endif
                 }
                 else
                 {

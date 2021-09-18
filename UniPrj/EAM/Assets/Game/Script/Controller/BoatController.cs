@@ -45,7 +45,7 @@ public class BoatController : BaseController
 
         Tile tile = m_mapController.GetTile(tilePos.x, tilePos.y);
 
-        if (tile.TERRAIN.terrain == eTerrain.obstacle)      //[TEMP]
+        if (tile.TERRAIN == eTerrain.obstacle)      //[TEMP]
             return;
 
         m_boat.MoveTo(tilePos.x, tilePos.y);
