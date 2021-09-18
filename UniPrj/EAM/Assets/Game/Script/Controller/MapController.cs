@@ -119,7 +119,7 @@ public class MapController : BaseController
     private void updateTileDisplay(int x, int y)
     {
         int xRange = 4;     /////////////////////[TEMP]
-        int yRange = 25;    
+        int yRange = 27;    
 
         for(int i = x - xRange; i <= x + xRange; i++)
         {
@@ -138,14 +138,19 @@ public class MapController : BaseController
     /// <param name="y"></param>
     private void refreshFog(int x, int y, Vector2 mapPosition)
     {
-        int range = 16;     /////////////////////[TEMP]
+        int xRange = 4;
+        int yRange = 27;     /////////////////////[TEMP]
 
-        for(int i = x - range; i <= x + range; i++)
+        for(int i = x - xRange; i <= x + xRange; i++)
         {
-            for(int j = y - range; j <= y + range; j++)
+            for(int j = y - yRange; j <= y + yRange; j++)
             {
                 if (i >= 0 && j >= 0 && i < m_tableMap.m_width && j < m_tableMap.m_height)
-                    m_mapFogs[i, j].RefreshDisplay(i, j, mapPosition,  m_mapConfig.m_fogRadius);
+                {
+                    Fog fog = m_mapFogs[i, j];
+                    fog.ACTIVE_DISPLAY = true;
+                    fog.RefreshFog(i, j, mapPosition, m_mapConfig.m_fogRadius);
+                }
             }
         }
     }
@@ -237,10 +242,10 @@ public class MapController : BaseController
 
                 // fog
                 Fog fog = m_fogFactory.Create();
-                fog.transform.SetParent(m_fogContainer);
-                fog.transform.localPosition = Tile2Position(i, j);
+                fog.SetTransformParent(m_fogContainer);
+                fog.SetPosition(Tile2Position(i, j));
 
-                fog.SetFog(tmt.fog, i, j);
+                fog.SetFog(tmt.fog);
                 fog.SetOrder(j + m_mapConfig.m_fogOrderOffset);
 
                 m_mapFogs[i, j] = fog;
