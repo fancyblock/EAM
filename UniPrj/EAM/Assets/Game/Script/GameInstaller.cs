@@ -29,6 +29,7 @@ public class GameInstaller : MonoInstaller
         Container.DeclareSignal<SignalInitBoat>();
         Container.DeclareSignal<SignalTouchMap>();
         Container.DeclareSignal<SignalBoatPositionChange>();
+        Container.DeclareSignal<SignalStartBattle>();
     }
 
     /// <summary>
@@ -43,6 +44,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(BoatController)).To<BoatController>().AsSingle();
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(MapCameraController)).To<MapCameraController>().AsSingle();
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(UIController)).To<UIController>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(BattleCameraController)).To<BattleCameraController>().AsSingle();
     }
 
     private void initFactory()
