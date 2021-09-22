@@ -39,9 +39,9 @@ public class BoatController : BaseController
 
     private void onMapTouch(SignalTouchMap signal)
     {
-        Util.Log($"Goto there {signal.m_position.ToString()}", Color.blue);
-
         Vector2Int tilePos = m_mapController.Position2Tile(signal.m_position.x, signal.m_position.y);
+
+        Util.Log($"Goto there {tilePos.ToString()}", new Color(0.1f, 0.33f, 0.85f));
 
         Tile tile = m_mapController.GetTile(tilePos.x, tilePos.y);
 

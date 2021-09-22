@@ -36,11 +36,13 @@ public class GameInstaller : MonoInstaller
     /// </summary>
     private void initControllers()
     {
-        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(MapController)).To<MapController>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(TouchController)).To<TouchController>().AsSingle();
+
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(GameController)).To<GameController>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(MapController)).To<MapController>().AsSingle();
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(BoatController)).To<BoatController>().AsSingle();
         Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(MapCameraController)).To<MapCameraController>().AsSingle();
-        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(TouchController)).To<TouchController>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(ITickable), typeof(UIController)).To<UIController>().AsSingle();
     }
 
     private void initFactory()

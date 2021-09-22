@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Lean.Touch;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 
@@ -25,6 +26,13 @@ public class TouchController : BaseController
 
     private void HandleFingerTap(LeanFinger finger)
     {
+#if UNITY_EDITOR
+        if (EventSystem.current.IsPointerOverGameObject())
+#else
+        if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+#endif
+            return;
+
         Vector2 worldPosition = m_mapCamera.ScreenToWorldPoint(finger.ScreenPosition);
 
         m_signalBus.Fire(new SignalTouchMap() { m_position = worldPosition });

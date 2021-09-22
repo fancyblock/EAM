@@ -197,6 +197,8 @@ public class MapController : BaseController
 
         createMap();
         refreshTileCorner();
+
+        m_signalBus.Fire(new SignalInitBoat());
     }
 
     private void createMap()

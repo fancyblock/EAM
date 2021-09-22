@@ -5,9 +5,12 @@ using UnityEngine.Assertions;
 
 public class AutoContainer : MonoBehaviour, IAutoContainer
 {
+    [SerializeField]
+    private string m_id;
     public List<string> m_widgetNames = new List<string>();
     public List<AutoWidget> m_widgets = new List<AutoWidget>();
-    public List<GameObject> exObjects;
+    [SerializeField]
+    private List<GameObject> exObjects;
 
     private bool m_init = false;
     private Dictionary<string, AutoWidget> m_widgetDic = new Dictionary<string, AutoWidget>();

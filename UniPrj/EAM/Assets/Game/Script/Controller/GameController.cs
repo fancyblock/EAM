@@ -31,8 +31,7 @@ public class GameController : BaseController
         if (m_init)
             return;
 
-        m_signalBus.Fire(new SignalCreateMap());
-        m_signalBus.Fire(new SignalInitBoat());
+        m_signalBus.Fire(new UICommonSignal() { m_action = eUIBaseAction.open, m_uiName = eUI.GameStart.ToString() });
 
         m_init = true;
         ////////////////////////////////////////
