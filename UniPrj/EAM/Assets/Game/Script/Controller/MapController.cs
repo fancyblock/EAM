@@ -155,6 +155,9 @@ public class MapController : BaseController
         }
     }
 
+    /// <summary>
+    /// º”‘ÿµÿÕº
+    /// </summary>
     private void loadMap()
     {
         Util.Log("LoadMap");
@@ -198,7 +201,7 @@ public class MapController : BaseController
         createMap();
         refreshTileCorner();
 
-        m_signalBus.Fire(new SignalInitBoat());
+        m_signalBus.Fire(new SignalInitBoat());         //////////////////////////////////////[TEMP]
     }
 
     private void createMap()

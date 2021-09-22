@@ -20,7 +20,7 @@ public class BaseUIPanel : IInitializable
     {
         Debug.Log($"{signal.m_uiName}  -   {m_ui.name}");
 
-        if (signal.m_uiName != m_ui.name)
+        if (signal.m_uiName.ToString() != m_ui.name)
             return;
 
         switch (signal.m_action)

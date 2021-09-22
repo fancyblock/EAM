@@ -31,8 +31,6 @@ public class BoatController : BaseController
 
     private void initBoat()
     {
-        Util.Log("Crate Boat", Color.green);
-
         m_boat.SetPosition(m_boatInitPos.x, m_boatInitPos.y);
         m_boat.SetVelocity(m_boatCfg.m_normalVelocity);
     }

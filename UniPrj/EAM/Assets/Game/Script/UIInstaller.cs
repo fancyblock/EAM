@@ -32,5 +32,6 @@ public class UIInstaller : MonoInstaller
     private void installUIPanel()
     {
         Container.Bind(typeof(IInitializable), typeof(UIGameStart)).To<UIGameStart>().AsSingle();
+        Container.Bind(typeof(IInitializable), typeof(UIGameHud)).To<UIGameHud>().AsSingle();
     }
 }
