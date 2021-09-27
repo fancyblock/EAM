@@ -18,11 +18,6 @@ public class GameController : BaseController
 
     public override void Initialize()
     {
-        Util.Log("Game start.", Color.red);
-
-        Application.targetFrameRate = 60;
-
-        // loadLevel();
     }
 
     public override void Tick()
@@ -31,8 +26,7 @@ public class GameController : BaseController
         if (m_init)
             return;
 
-        m_signalBus.Fire(new UICommonSignal() { m_action = eUIBaseAction.open, m_uiName = eUI.GameStart});
-        m_signalBus.Fire(new UICommonSignal() { m_action = eUIBaseAction.open, m_uiName = eUI.GameHud});
+        m_signalBus.Fire(new GameInitSignal());
 
         m_init = true;
         ////////////////////////////////////////

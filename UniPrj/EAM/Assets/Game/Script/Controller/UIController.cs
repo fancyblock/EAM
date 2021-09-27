@@ -7,8 +7,6 @@ public class UIController : BaseController
 {
     public override void Initialize()
     {
-        Util.Log("UIController initing...");
-
         //TODO 
     }
 

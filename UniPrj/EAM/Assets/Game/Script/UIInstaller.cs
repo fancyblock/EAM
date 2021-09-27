@@ -21,6 +21,7 @@ public class UIInstaller : MonoInstaller
 
         installUISignal();
         installUIPanel();
+        installCommand();
     }
 
 
@@ -33,5 +34,12 @@ public class UIInstaller : MonoInstaller
     {
         Container.Bind(typeof(IInitializable), typeof(UIGameStart)).To<UIGameStart>().AsSingle();
         Container.Bind(typeof(IInitializable), typeof(UIGameHud)).To<UIGameHud>().AsSingle();
+    }
+
+    private void installCommand()
+    {
+        Container.Bind<GameInitCmd>().AsTransient();
+        Container.DeclareSignal<GameInitSignal>();
+        Container.BindSignal<GameInitSignal>().ToMethod<GameInitCmd>(x => x.Exe).FromResolve();
     }
 }

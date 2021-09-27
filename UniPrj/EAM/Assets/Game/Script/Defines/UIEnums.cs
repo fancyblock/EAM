@@ -2,6 +2,7 @@
 
 public enum eUI
 {
+    None,
     GameStart,
     GameHud,
 }

@@ -43,8 +43,6 @@ public class MapController : BaseController
 
     public override void Initialize()
     {
-        Util.Log("Map initialize.");
-
         m_signalBus.Subscribe<SignalCreateMap>(loadMap);
         m_signalBus.Subscribe<SignalTouchMap>(onMapTouch);
         m_signalBus.Subscribe<SignalBoatPositionChange>(onBoatPositionChange);
