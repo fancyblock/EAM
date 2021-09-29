@@ -10,6 +10,8 @@ public enum eUI
 
 public enum eUIBaseAction
 {
+    enterScene,
+    exitScene,
     open,
     close,
 }

@@ -1,9 +1,9 @@
 using UnityEngine;
 
 
-class SignalInitBoat { }
+public class SignalInitBoat { }
 
-class SignalBoatPositionChange 
+public class SignalBoatPositionChange 
 {
     public int X;
     public int Y;

@@ -1,11 +1,11 @@
 
 
-class GameInitSignal { }
+public class GameInitSignal { }
 
-class SwitchSceneSignal 
+public class SwitchSceneSignal 
 {
     public eScene SCENE { get; set; }
 }
 
-class SignalStartBattle { }
+public class SignalStartBattle { }
 

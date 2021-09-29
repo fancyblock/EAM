@@ -18,26 +18,26 @@ public class BaseUIPanel : IInitializable
 
     private void onUICommonSignal(UICommonSignal signal)
     {
-        Debug.Log($"{signal.m_uiName}  -   {m_ui.name}");
-
         if (signal.m_uiName.ToString() != m_ui.name)
             return;
 
         switch (signal.m_action)
         {
             case eUIBaseAction.open:
-                m_ui.gameObject.SetActive(true);
                 onOpen();
                 break;
             case eUIBaseAction.close:
                 onClose();
-                m_ui.gameObject.SetActive(false);
                 break;
             default:
                 break;
         }
     }
 
+
+    protected virtual void onEnterScene(eScene scene) { }
+
+    protected virtual void onExitScene(eScene scene) { }
 
     protected virtual void onOpen() { }
 

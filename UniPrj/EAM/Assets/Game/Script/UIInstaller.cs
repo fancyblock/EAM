@@ -38,8 +38,15 @@ public class UIInstaller : MonoInstaller
 
     private void installCommand()
     {
-        Container.Bind<GameInitCmd>().AsTransient();
-        Container.DeclareSignal<GameInitSignal>();
-        Container.BindSignal<GameInitSignal>().ToMethod<GameInitCmd>(x => x.Exe).FromResolve();
+        bindCommand<GameInitSignal, GameInitCmd>();
+        bindCommand<SwitchSceneSignal, SwitchSceneCmd>();
+    }
+
+
+    private void bindCommand<T,U>() where U : BaseCommand
+    {
+        Container.Bind<U>().AsTransient();
+        Container.DeclareSignal<T>();
+        Container.BindSignal<T>().ToMethod<U>(x => x.Exe).FromResolve();
     }
 }

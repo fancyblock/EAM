@@ -9,5 +9,5 @@ public abstract class BaseCommand
     [Inject]
     protected SignalBus m_signalBus;
 
-    public abstract void Exe();
+    // public abstract void Exe(object param = null);
 }
