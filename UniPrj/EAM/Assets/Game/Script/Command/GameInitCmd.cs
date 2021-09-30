@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameInitCmd : BaseCommand
 {
-    public void Exe()
+    public override void Exe()
     {
         Util.Log("Game Start", Color.red);
 

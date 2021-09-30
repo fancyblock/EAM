@@ -6,11 +6,10 @@ using Zenject;
 
 public class SwitchSceneCmd : BaseCommand
 {
-    [Inject]
-    public void Exe(SwitchSceneSignal signal)
+    public override void Exe()
     {
         //TODO 
 
-        Util.Log(signal.SCENE.ToString() + "   <><><>");
+        // Util.Log(signal.SCENE.ToString() + "   <><><>");
     }
 }

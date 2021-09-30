@@ -46,7 +46,7 @@ public class UIInstaller : MonoInstaller
     private void bindCommand<T,U>() where U : BaseCommand
     {
         Container.Bind<U>().AsTransient();
-        Container.DeclareSignal<T>();
+        Container.DeclareSignal<T>().RunAsync();
         Container.BindSignal<T>().ToMethod<U>(x => x.Exe).FromResolve();
     }
 }
