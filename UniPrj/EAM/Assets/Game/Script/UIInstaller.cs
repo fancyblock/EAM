@@ -20,6 +20,8 @@ public class UIInstaller : MonoInstaller
             Container.BindInstance(go.GetComponent<AutoContainer>()).WithId(go.name);
 
         installUISignal();
+
+        installModel();
         installUIPanel();
         installCommand();
     }
@@ -36,6 +38,11 @@ public class UIInstaller : MonoInstaller
         Container.Bind(typeof(IInitializable), typeof(UIGameHud)).To<UIGameHud>().AsSingle();
     }
 
+    private void installModel()
+    {
+        Container.Bind<IGameCtxModel>().WithId("model").To<GameCtxModel>().AsSingle();
+    }
+
     private void installCommand()
     {
         bindCommand<GameInitSignal, GameInitCmd>();
@@ -43,7 +50,7 @@ public class UIInstaller : MonoInstaller
     }
 
 
-    private void bindCommand<T,U>() where U : BaseCommand
+    private void bindCommand<T,U>() where T : BaseSignal where U : BaseCommand
     {
         Container.Bind<U>().AsTransient();
         Container.DeclareSignal<T>().RunAsync();

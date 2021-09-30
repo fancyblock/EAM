@@ -1,20 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+
 
 public class GameInitCmd : BaseCommand
 {
-    public override void Exe()
+    [Inject]
+    private DiContainer m_container;
+
+
+    public override void Exe(BaseSignal signal)
     {
         Util.Log("Game Start", Color.red);
 
         Application.targetFrameRate = 60;
 
-        //TODO 
+        // initial all model
+        //List<IBaseModel> models = (List<IBaseModel>)m_container.ResolveIdAll(typeof(IBaseModel), "model");
+        //Debug.Log($"model count: {models.Count}");
 
-        m_signalBus.Fire(new SwitchSceneSignal() { SCENE = eScene.Cutscene });
+        //foreach(IBaseModel model in models)
+        //{
+        //    model.LoadData();
+        //}
 
-        m_signalBus.Fire(new UICommonSignal() { m_action = eUIBaseAction.open, m_uiName = eUI.GameStart });
-        m_signalBus.Fire(new UICommonSignal() { m_action = eUIBaseAction.open, m_uiName = eUI.GameHud });
+        m_signalBus.Fire(new SwitchSceneSignal() { SCENE = eScene.Loading });
     }
 }

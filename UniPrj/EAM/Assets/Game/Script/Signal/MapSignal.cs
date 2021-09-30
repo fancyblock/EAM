@@ -1,9 +1,9 @@
 using UnityEngine;
 
 
-public class SignalCreateMap { }
+public class SignalCreateMap : BaseSignal { }
 
-public class SignalTouchMap
+public class SignalTouchMap : BaseSignal
 {
     public Vector2 m_position;
 }
